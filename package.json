@@ -1,0 +1,20 @@
+{
+  "name": "vault-authorization-system",
+  "version": "1.0.0",
+  "description": "Authorization-Governed Vault System for Controlled Asset Withdrawals",
+  "main": "scripts/deploy.js",
+  "scripts": {
+    "test": "jest",
+    "compile": "hardhat compile",
+    "deploy": "node scripts/deploy.js"
+  },
+  "dependencies": {
+    "ethers": "^6.7.1",
+    "hardhat": "^2.18.0",
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "@types/jest": "^29.0.0"
+  }
+}
