@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  blockchain:
+    image: trufflesuite/ganache-cli:latest
+    ports:
+      - "8545:8545"
+    command: ganache-cli --host 0.0.0.0 --accounts 10 --deterministic
+    networks:
+      - vault-network
+
+  deployer:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    depends_on:
+      - blockchain
+    environment:
+      - NODE_ENV=production
+      - RPC_URL=http://blockchain:8545
+    networks:
+      - vault-network
+    command: npm run deploy
+
+networks:
+  vault-network:
+    driver: bridge
